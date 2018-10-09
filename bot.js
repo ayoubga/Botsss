@@ -303,35 +303,35 @@ client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith(adminprefix + 'sp')) {
+  if (message.content.startsWith(prefix + 'sp')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-    if (message.content === (adminprefix + "Percie")) {
+    if (message.content === (prefix + "Percie")) {
     message.guild.leave();        
   } else  
-  if (message.content.startsWith(adminprefix + 'sw')) {
+  if (message.content.startsWith(prefix + 'sw')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-  if (message.content.startsWith(adminprefix + 'ss')) {
+  if (message.content.startsWith(prefix + 'ss')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else   
-  if (message.content.startsWith(adminprefix + 'sn')) {
+  if (message.content.startsWith(prefix + 'sn')) {
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`**${argresult}** : Done :>`)
   return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
   } else
-    if (message.content.startsWith(adminprefix + 'setavatar')) {
+    if (message.content.startsWith(prefix + 'setavatar')) {
   client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
         } else     
-  if (message.content.startsWith(adminprefix + 'st')) {
+  if (message.content.startsWith(prefix + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   }
-    if(message.content === adminprefix + "restart") {
+    if(message.content === prefix + "restart") {
       if (!devs.includes(message.author.id)) return;
           message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
         console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
