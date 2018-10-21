@@ -538,16 +538,7 @@ By : إ”Andy آ²آ²,#2292
     }
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-client.on('message', message => {
-    if(message.content === "#bot") {
-        const embed = new Discord.RichEmbed()
-        .setColor("#00FFFF")
-        .setDescription(`**Servers**ًںŒگ **__${client.guilds.size}__**
-**Users**ًں‘¥ **__${client.users.size}__**
-**Channels**ًں“ڑ **__${client.channels.size}__** `)
-               message.channel.sendEmbed(embed);
-           }
-});
+
 client.on('message' , message => {
 
     if (message.content === "#invite") {
