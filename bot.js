@@ -1,49 +1,28 @@
 const Discord = require("discord.js");
-  const kboosh = new Discord.Client();
-    const kbooshtoken = "MzI3NzM2NTMyOTMwOTIwNDUw.DGmnLA.QFbtYXPzTAvZsoFW70wNLyVm3lE"
-      kboosh.on('ready', () => {
-        kboosh.user.setGame(`Stúning Server ..`,'https://www.twitch.tv/TEST-Broadcast');
-          console.log('Im Ready!');
-  
-        });
+const client = new Discord.Client();
+var prefix = "r.";
+client.on("message", message => {
 
-  kboosh.on('message', message => {
-    if (message.content.split(' ')[0] == 'r')
-       message.guild.members.forEach( member => {
-         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-
-
-           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
-                                                      message.delete();
-            
-                                                    });
-            
-                                                  });
-   kboosh.on("message", message => {
-       var prefix = "%";
- 
-             var args = message.content.substring(prefix.length).split(" ");
-                if (message.content.startsWith(prefix + "bc")) {
-                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-
-                          if (!args[1]) {
-                            
-                                 let embed3 = new Discord.RichEmbed()
-                                     .setDescription(":white_check_mark: | تم ارسال رسالة لا يوجد فيها شيء")
-                                       .setColor("#FF00FF")
-                                          message.channel.sendEmbed(embed3);
-                            
-                                        } else {
-
-                            
-                                           let embed4 = new Discord.RichEmbed()
-                                                            .setDescription(':white_check_mark: | تم ارسال الرساله للجميع ..')
-                                                                .setColor("#99999")
-                               
-                                                                message.channel.sendEmbed(embed4);
-                                                      message.delete();
-                            }
-                          }
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
-client.login("NTA3Mjc1OTY2MDQxODE3MTQ4.DruVVQ.Eihljszb6_G_5F7CNxHSo2TLJmg");
+
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`bc Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`online '     Script By : Randy ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`Stúning Server .. `,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
+});
