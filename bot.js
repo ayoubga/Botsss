@@ -26,3 +26,4 @@ client.on('ready', () => {
 client.user.setGame(`Stúning Server .. `,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
+client.login(process.env.BOT_TOKEN);
